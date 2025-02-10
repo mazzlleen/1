@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <!-- Адаптивный meta-тег -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Валентинка для самой лучшей лизы!!!</title>
+  <!-- Подключаем шрифт "Poiret One" для заголовков и кнопок -->
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+  <style>
+    /* Общий сброс стилей */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f9e3e3;
+      font-family: 'Arial', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    #container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 10;
+    }
+    
+    /* Фоновые анимированные сердечки */
+    #bgHearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1; /* Позади основного контента */
+      pointer-events: none;
+    }
+    .heart-bg {
+      position: absolute;
+      width: var(--heart-size, 20px);
+      height: var(--heart-size, 20px);
+      background: red;
+      transform: rotate(-45deg);
+      opacity: 0.4;
+      animation: pulse 3s infinite;
+    }
+    .heart-bg::before,
+    .heart-bg::after {
+      content: "";
+      position: absolute;
+      width: var(--heart-size, 20px);
+      height: var(--heart-size, 20px);
+      background: red;
+      border-radius: 50%;
+    }
+    .heart-bg::before {
+      top: calc(-1 * var(--heart-size, 20px) / 2);
+    }
+    .heart-bg::after {
+      left: calc(var(--heart-size, 20px) / 2);
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.8) rotate(-45deg); }
+      50% { transform: scale(1.2) rotate(-45deg); }
+    }
+    
+    /* Фантики (confetti) – оставляем, как было, если понадобится их раскомментировать */
+    /*
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      opacity: 0.8;
+      animation: confettiFall 5s linear infinite;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    */
+    
+    /* Стили для контейнера с кнопками и фотографией (код без изменений) */
+    .container {
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      top: 20%;
+      background: #f9e3e3;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .button {
+      font-size: 1.5em;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease, font-size 0.3s ease;
+    }
+    .yes-button {
+      background: #ff656a;
+      color: white;
+    }
+    .no-button {
+      background: #494949;
+      color: white;
+    }
+    .gif_container {
+      margin-top: 20px;
+    }
+    .gif_container img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    /* Адаптив: на экранах до 600px кнопки располагаются вертикально и занимают 80vw */
+    @media (max-width: 600px) {
+      .button {
+        width: 80vw;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Фоновые сердечки -->
+  <div id="bgHearts">
+    <div class="heart-bg" style="--heart-size: 25px; top: 5%; left: 10%;"></div>
+    <div class="heart-bg" style="--heart-size: 30px; top: 12%; left: 80%;"></div>
+    <div class="heart-bg" style="--heart-size: 20px; top: 18%; left: 30%;"></div>
+    <div class="heart-bg" style="--heart-size: 35px; top: 25%; left: 60%;"></div>
+    <div class="heart-bg" style="--heart-size: 22px; top: 33%; left: 15%;"></div>
+    <div class="heart-bg" style="--heart-size: 28px; top: 40%; left: 70%;"></div>
+    <div class="heart-bg" style="--heart-size: 24px; top: 48%; left: 25%;"></div>
+    <div class="heart-bg" style="--heart-size: 30px; top: 55%; left: 80%;"></div>
+    <div class="heart-bg" style="--heart-size: 26px; top: 62%; left: 35%;"></div>
+    <div class="heart-bg" style="--heart-size: 32px; top: 70%; left: 50%;"></div>
+    <div class="heart-bg" style="--heart-size: 20px; top: 78%; left: 10%;"></div>
+    <div class="heart-bg" style="--heart-size: 25px; top: 85%; left: 65%;"></div>
+    <div class="heart-bg" style="--heart-size: 30px; top: 90%; left: 30%;"></div>
+    <div class="heart-bg" style="--heart-size: 20px; top: 93%; left: 80%;"></div>
+  </div>
+  
+  <div id="container">
+    <div class="container">
+      <h1>Привет, Лизонька!!! Ты будешь моей валентинкой?</h1>
+      <div class="buttons">
+        <button class="button yes-button" onclick="handleYesClick()">Конечно да!!!!</button>
+        <button class="button no-button" onclick="handleNoClick()">Нет:(</button>
+      </div>
+      <div class="gif_container">
+        <img src="https://i.pinimg.com/originals/19/a9/f3/19a9f38d42df6a3e487de8a4a5135a60.gif" alt="Милый котик прям как ты лиз">
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Массив сообщений для кнопки "Нет:("
+    const messages = [
+      "Ты хорошо подумала?",
+      "Может подумаешь еще?",
+      "Я реально буду грустить, лиз, тебе все равно?",
+      "Я буду оч грустный..."
+    ];
+    let noClicks = 0;
+    
+    function handleNoClick() {
+      const noButton = document.querySelector('.no-button');
+      const yesButton = document.querySelector('.yes-button');
+      
+      noClicks++;
+      if (noClicks <= messages.length) {
+        noButton.textContent = messages[noClicks - 1];
+      }
+      
+      // Увеличиваем кнопку "Конечно да!!!!"
+      let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+      yesButton.style.fontSize = (currentSize * 1.3) + "px";
+      
+      if (noClicks === 5) {
+        // После 5 нажатий кнопка "Конечно да!!!!" занимает весь экран
+        yesButton.style.position = "fixed";
+        yesButton.style.top = "0";
+        yesButton.style.left = "0";
+        yesButton.style.width = "100vw";
+        yesButton.style.height = "100vh";
+        yesButton.style.borderRadius = "0";
+        yesButton.style.fontSize = "4em";
+        yesButton.textContent = "Конечно да!!!!";
+      }
+    }
+    
+    function handleYesClick() {
+      // Переход на другую страницу (будущую)
+      window.location.href = "valentine.html";
+    }
+  </script>
+</body>
+</html>
